@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Explorer Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #response { margin-top: 20px; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Test Website Explorer</h1>
+    <form id="testForm">
+        <div class="form-group">
+            <label for="websiteurl">Website URL:</label>
+            <input type="url" id="websiteurl" name="websiteurl" required>
+        </div>
+        <div class="form-group">
+            <label for="figmaid">Figma ID:</label>
+            <input type="text" id="figmaid" name="figmaid" required>
+        </div>
+        <button type="submit">Run Test</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const responseDiv = document.getElementById('response');
+            responseDiv.textContent = 'Processing...';
+            
+            try {
+                const response = await fetch('/testagent', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        websiteurl: document.getElementById('websiteurl').value,
+                        figmaid: document.getElementById('figmaid').value
+                    })
+                });
+
+                const data = await response.json();
+                responseDiv.textContent = data.message;
+                responseDiv.style.color = response.ok ? 'green' : 'red';
+                
+                if (response.ok) {
+                    document.getElementById('testForm').reset();
+                }
+            } catch (error) {
+                responseDiv.textContent = 'Error: ' + error.message;
+                responseDiv.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
