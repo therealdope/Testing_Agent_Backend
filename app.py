@@ -33,35 +33,35 @@ def test_agent():
         if not websiteurl or not figmaid:
             return jsonify({"message": "Missing required parameters"}), 400
         
-        # # Remove existing output files
-        # files_to_remove = [
-        #     "./extracted_components.json",
-        #     "./generated_test.py",
-        #     "./functional_tests_log.txt",
-        #     "./responsive_tests.txt"
-        # ]
+        # Remove existing output files
+        files_to_remove = [
+            "./extracted_components.json",
+            "./generated_test.py",
+            "./functional_tests_log.txt",
+            "./responsive_tests.txt"
+        ]
         
-        # for file_path in files_to_remove:
-        #     if os.path.exists(file_path):
-        #         os.remove(file_path)
+        for file_path in files_to_remove:
+            if os.path.exists(file_path):
+                os.remove(file_path)
         
-        # # Remove existing screenshots directory
-        # screenshots_dir = "./screenshots"
-        # if os.path.exists(screenshots_dir):
-        #     for file in os.listdir(screenshots_dir):
-        #         os.remove(os.path.join(screenshots_dir, file))
-        #     os.rmdir(screenshots_dir)
+        # Remove existing screenshots directory
+        screenshots_dir = "./screenshots"
+        if os.path.exists(screenshots_dir):
+            for file in os.listdir(screenshots_dir):
+                os.remove(os.path.join(screenshots_dir, file))
+            os.rmdir(screenshots_dir)
         
         # Initialize WebsiteExplorer with proper Chrome setup for M1/M2 Mac
-        # chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_argument('--headless')
-        # chrome_options.add_argument('--no-sandbox')
-        # chrome_options.add_argument('--disable-dev-shm-usage')
-        # chrome_options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
         
-        # explorer = WebsiteExplorer()
-        # explorer.chrome_options = chrome_options
-        # explorer.start_journey(websiteurl, figmaid)
+        explorer = WebsiteExplorer()
+        explorer.chrome_options = chrome_options
+        explorer.start_journey(websiteurl, figmaid)
         
         # Collect test results and files
         output_data = {
@@ -139,4 +139,3 @@ def test_agent():
 if __name__ == '__main__':
     port = 5000
     app.run(host='0.0.0.0', port=port)
-    
