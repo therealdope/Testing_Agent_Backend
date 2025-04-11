@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["https://your-frontend-url.onrender.com", "http://localhost:3000"],
+        "origins": ["testing-agent-skheni.vercel.app", "http://localhost:3000"],
         "methods": ["POST", "GET", "OPTIONS"],
         "allow_headers": ["Content-Type"],
         "expose_headers": ["Content-Type"],
@@ -137,5 +137,6 @@ def test_agent():
         }), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
+    port = 5000
     app.run(host='0.0.0.0', port=port)
+    
