@@ -10,9 +10,13 @@ from selenium.webdriver.chrome.options import Options
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["testing-agent-skheni.vercel.app", "http://localhost:3000"],
+        "origins": [
+            "https://testing-agent-skheni.vercel.app",
+            "https://testing-agent-backend.onrender.com",
+            "http://localhost:3000"
+        ],
         "methods": ["POST", "GET", "OPTIONS"],
-        "allow_headers": ["Content-Type"],
+        "allow_headers": ["Content-Type", "Authorization"],
         "expose_headers": ["Content-Type"],
         "supports_credentials": True,
         "max_age": 3600
