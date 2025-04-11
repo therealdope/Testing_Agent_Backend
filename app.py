@@ -12,7 +12,6 @@ CORS(app, resources={
     r"/*": {
         "origins": [
             "https://testing-agent-skheni.vercel.app",
-            "https://testing-agent-backend.onrender.com",
             "http://localhost:3000"
         ],
         "methods": ["POST", "GET", "OPTIONS"],
@@ -141,5 +140,4 @@ def test_agent():
         }), 500
 
 if __name__ == '__main__':
-    port = 5000
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=False)
