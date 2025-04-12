@@ -1,6 +1,3 @@
-I'll help you create a comprehensive README.md file for your project:
-
-```markdown:/Users/shwetkheni/Desktop/CS/web-dev/hackathon/hackNUthon/flask/README.md
 # Testing Agent - Automated Web Testing Tool
 
 An AI-powered web testing tool that combines Selenium automation with Figma design validation.
@@ -30,7 +27,7 @@ git clone https://github.com/therealdope/Testing_Agent_Backend
 cd Testing_Agent_Backend
 ```
 
-2. Create and activate virtual environment:
+2. Create and activate virtual environment(MacOS):
 ```bash
 python -m venv env
 source env/bin/activate
@@ -54,10 +51,11 @@ FLASK_ENV=development
 python app.py
 ```
 
-The server will start at `http://localhost:5000`
+The server will start at
+ `http://localhost:5000`
 or 
 `http://127.0.0.1:5000`
- --> this is used in frontend to communicate with backend `http://127.0.0.1:5000/testagent` for backend api url
+ - In Frontend below link is used for Backend API URL `http://127.0.0.1:5000/testagent`
 
 ## Environment Setup
 
@@ -83,7 +81,8 @@ The project uses webdriver-manager which automatically handles ChromeDriver inst
 python app.py
 ```
 
-2. Access the web interface at `http://localhost:5000`
+2. Access the web interface at
+`http://localhost:5000`
 or
 `http://127.0.0.1:5000`
 
@@ -92,11 +91,11 @@ or
    - Figma file ID
 
 4. View generated:
-   - Component tests
-   - generated test cases
-   - Responsive design tests
+   - Generated Test File
+   - Component Test log
+   - Functional Test log
+   - Responsive Testing log
    - Screenshots
-   - Test reports
 
 ## Project Structure
 
@@ -127,7 +126,3 @@ To contribute:
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-
-## License
-
-MIT License

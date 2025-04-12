@@ -1,4 +1,4 @@
-# explorer.start_journey("https://boldo-website-template.vercel.app","TrZ4dDq2WqtxekYp9vUWce")    #Webpage and Figma ID
+# testing website and figma links
 # https://boldo-website-template.vercel.app
 # TrZ4dDq2WqtxekYp9vUWce
 import random
@@ -48,7 +48,7 @@ class WebsiteExplorer:
         self.driver = webdriver.Chrome(options=options)
         self.history = []
         self.click_counter = 0
-        self.max_journey_length = 1  # Increased limit for more exploration
+        self.max_journey_length = 9  # Increased limit for more exploration
         self.max_retries = 3 
         self.output=""
         self.visited=[]
